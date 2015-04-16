@@ -1,5 +1,5 @@
 # Instrumentation Frameworks
-Instrumentation testing frameworks use the ActivityInstrumentationTestCase or ActivityInstrumentationTestCase2 and are required to be ran on an actual Android device or emulator. These types of tests should not be used as unit tests due to the complexity of the Android Activity life cycle, and the amount of time required to run them. Instead these types of tests should be used for testing UI elements, integration between multiple activities, or acceptance testing. Due to this high level of testing, mocking should generally be avoided. An exception to this would be producing error cases for an external API. 
+Instrumentation testing frameworks are required to be ran on an actual Android device or emulator. These types of tests should not be used as unit tests due to the complexity of the Android Activity life cycle, and the amount of time required to run them. Instead these types of tests should be used for testing UI elements, integration between multiple activities, or acceptance testing. Due to this high level of testing, mocking should generally be avoided. An exception to this would be producing error cases for an external API. 
 
 ##[Robotium](https://code.google.com/p/robotium/)
 
@@ -79,6 +79,8 @@ dependencies {
     androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
 }
 ```
+## Calabash
+Calabash was not explored since it is aimed for both Android and Iphone applications and is written in ruby so there is a higher learning curve and setup.
 
 # Comparisons
 To get a better understanding of these testing frameworks, a simple appication was created to evaluate and compare each. This application consists of two activities, in which three tests were written. The first test is an integration test to ensure that clicking a button in the main activity takes the user to the second activity. The second test verifies that the correct dialog is opened when clicking on a menu item in the action bar on the first activity. The third test checks to be sure that the listview in the second activity is populated with the correct data. 
