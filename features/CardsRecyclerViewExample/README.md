@@ -1,3 +1,13 @@
+# Project Overview
+This example application includes the following: 
+* RecyclerView
+* LinearLayoutManager
+* RecyclerView.Adapter
+* Cards
+ 
+It demonstrates how to create your own RecyclerView.Adapter, setup a CardView in xml, and how to test these using Espesso and Robolectric. 
+
+
 # Gradle setup
 Add to dependencies
 ```
@@ -6,7 +16,7 @@ Add to dependencies
 ```
 
 # AppCompat
-## Consistency
+### Consistency
 For consistency between Android 21+ and pre-Android 21 add the following attributes to your card views 
 ```
     card_view:cardUseCompatPadding="true"
