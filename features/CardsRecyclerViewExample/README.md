@@ -1,4 +1,4 @@
-# Gradle
+# Gradle setup
 Add to dependencies
 ```
     compile 'com.android.support:cardview-v7:21.0.0'
@@ -13,19 +13,20 @@ For consistency between Android 21+ and pre-Android 21 add the following attribu
     card_view:cardPreventCornerOverlap="false"
 
 ```
-Setting cardUseCompatPadding to true makes sure that the padding is consistent. 
-Making cardPreventCornerOverlap false makes the cropping of the corners of the card view intersecting with content consistent. 
+Setting cardUseCompatPadding to true makes sure that the padding is consistent. Making cardPreventCornerOverlap false makes the cropping of the corners of the card view intersecting with content consistent. 
 ### Examples
-cardUseCompatPadding set to false
-21 vs 19
+**cardUseCompatPadding set to false**
+![API 21 padding](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21UseCompatPaddingFalse.png) 
+![API 19 padding](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21UseCompatPaddingFalse.png)
 
-cardPreventCornerOverlap set to true
-21 vs 19
+**cardPreventCornerOverlap set to true**
+![API 21 corners](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21PreventCornerOverlapTrue.png) 
+![API 19 corners](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api19PreventCornerOverlapTrue.png)
 
 
-# Links
-https://developer.android.com/training/material/lists-cards.html
-https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView
+# Useful links
+* https://developer.android.com/training/material/lists-cards.html
+* https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView
 
 
 
