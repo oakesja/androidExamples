@@ -15,13 +15,11 @@ For consistency between Android 21+ and pre-Android 21 add the following attribu
 ```
 Setting cardUseCompatPadding to true makes sure that the padding is consistent. Making cardPreventCornerOverlap false makes the cropping of the corners of the card view intersecting with content consistent. 
 ### Examples
-**cardUseCompatPadding set to false**
-![API 21 padding](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21UseCompatPaddingFalse.png) 
-![API 19 padding](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21UseCompatPaddingFalse.png)
 
-**cardPreventCornerOverlap set to true**
-![API 21 corners](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21PreventCornerOverlapTrue.png) 
-![API 19 corners](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api19PreventCornerOverlapTrue.png)
+Attr | Api 21 | Api 19
+---- | ------ | ------
+cardUseCompatPadding false | ![API 21 padding](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21UseCompatPaddingFalse.png) | ![API 19 padding](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api19CompatPaddingFalse.png)
+cardPreventCornerOverlap true | ![API 21 corners](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api21PreventCornerOverlapTrue.png) | ![API 19 corners](https://github.com/oakesja/androidExamples/blob/master/features/CardsRecyclerViewExample/images/api19PreventCornerOverlapTrue.png)
 
 
 # Useful links
