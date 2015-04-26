@@ -23,3 +23,9 @@ dependencies {
     }
 }
 ```
+
+## Imports
+Android Fest
+```
+import static org.assertj.android.api.Assertions.assertThat;
+```
