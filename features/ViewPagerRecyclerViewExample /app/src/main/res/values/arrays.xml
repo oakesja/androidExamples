@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pager_tab_titles">
+        <item>Xbox 360</item>
+        <item>Xbox One</item>
+    </string-array>
+</resources>
