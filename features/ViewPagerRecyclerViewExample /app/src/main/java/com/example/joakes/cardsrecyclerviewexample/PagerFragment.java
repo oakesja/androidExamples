@@ -1,6 +1,7 @@
 package com.example.joakes.cardsrecyclerviewexample;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
+import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
 /**
  * Created by joakes on 6/22/15.
@@ -18,17 +22,21 @@ public class PagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.pager_fragment, container, false);
-        Bundle args = getArguments();
-        int type = args.getInt(FILTER_TYPE);
+        return inflater.inflate(R.layout.pager_fragment, container, false);
+//        Bundle args = getArguments();
+//        int type = args.getInt(FILTER_TYPE);
+    }
 
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.games_list);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.games_list);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter adapter = new RecylerAdapter(getActivity(), createGames());
+        RecyclerView.Adapter adapter = new RecyclerViewMaterialAdapter(new RecylerAdapter(getActivity(), createGames()));
         recyclerView.setAdapter(adapter);
-        return rootView;
+        MaterialViewPagerHelper.registerRecyclerView(getActivity(), recyclerView, null);
     }
 
     private Game[] createGames() {
