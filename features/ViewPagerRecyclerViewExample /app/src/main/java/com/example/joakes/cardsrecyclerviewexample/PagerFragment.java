@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
@@ -23,8 +22,6 @@ public class PagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.pager_fragment, container, false);
-//        Bundle args = getArguments();
-//        int type = args.getInt(FILTER_TYPE);
     }
 
     @Override
@@ -40,13 +37,20 @@ public class PagerFragment extends Fragment {
     }
 
     private Game[] createGames() {
-        return new Game[]{
-                new Game(R.mipmap.fallout, "fallout", Game.XBOX360),
-                new Game(R.mipmap.halo_4, "halo", Game.XBOX360),
-                new Game(R.mipmap.south_park, "south park", Game.XBOX360),
-                new Game(R.mipmap.ac, "assasins's creed", Game.XBOX_ONE),
-                new Game(R.mipmap.plantsvszombies, "plants vs zombines", Game.XBOX_ONE),
-                new Game(R.mipmap.watch_dogs, "watch dogs", Game.XBOX_ONE),
-        };
+        Bundle args = getArguments();
+        int type = args.getInt(FILTER_TYPE);
+        if(type == Game.XBOX_ONE){
+            return new Game[]{
+                    new Game(R.mipmap.ac, "assasins's creed", Game.XBOX_ONE),
+                    new Game(R.mipmap.plantsvszombies, "plants vs zombines", Game.XBOX_ONE),
+                    new Game(R.mipmap.watch_dogs, "watch dogs", Game.XBOX_ONE),
+            };
+        } else {
+            return new Game[]{
+                    new Game(R.mipmap.fallout, "fallout", Game.XBOX360),
+                    new Game(R.mipmap.halo_4, "halo", Game.XBOX360),
+                    new Game(R.mipmap.south_park, "south park", Game.XBOX360),
+            };
+        }
     }
 }

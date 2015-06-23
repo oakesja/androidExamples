@@ -1,6 +1,5 @@
 package com.example.joakes.cardsrecyclerviewexample;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -19,7 +18,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createGames();
 
         viewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
         viewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
@@ -30,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
                 int type = position == 0 ? Game.XBOX360 : Game.XBOX_ONE;
                 Bundle bundle = new Bundle();
                 bundle.putInt(PagerFragment.FILTER_TYPE, type);
+                fragment.setArguments(bundle);
                 return fragment;
             }
 
@@ -40,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public CharSequence getPageTitle(int position) {
-                switch (position % 4) {
+                switch (position) {
                     case 0:
                         return "Xbox 360";
                     case 1:
@@ -62,14 +61,14 @@ public class MainActivity extends ActionBarActivity {
         viewPager.getPagerTitleStrip().setViewPager(viewPager.getViewPager());
     }
 
-    private void createGames() {
-        games = new Game[]{
-                new Game(R.mipmap.fallout, "fallout", Game.XBOX360),
-                new Game(R.mipmap.halo_4, "halo", Game.XBOX360),
-                new Game(R.mipmap.south_park, "south park", Game.XBOX360),
-                new Game(R.mipmap.ac, "assasins's creed", Game.XBOX_ONE),
-                new Game(R.mipmap.plantsvszombies, "plants vs zombines", Game.XBOX_ONE),
-                new Game(R.mipmap.watch_dogs, "watch dogs", Game.XBOX_ONE),
-        };
-    }
+//    private void createGames() {
+//        games = new Game[]{
+//                new Game(R.mipmap.fallout, "fallout", Game.XBOX360),
+//                new Game(R.mipmap.halo_4, "halo", Game.XBOX360),
+//                new Game(R.mipmap.south_park, "south park", Game.XBOX360),
+//                new Game(R.mipmap.ac, "assasins's creed", Game.XBOX_ONE),
+//                new Game(R.mipmap.plantsvszombies, "plants vs zombines", Game.XBOX_ONE),
+//                new Game(R.mipmap.watch_dogs, "watch dogs", Game.XBOX_ONE),
+//        };
+//    }
 }
