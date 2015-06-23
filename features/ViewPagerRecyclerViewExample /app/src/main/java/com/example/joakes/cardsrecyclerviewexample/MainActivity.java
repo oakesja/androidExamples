@@ -1,15 +1,18 @@
 package com.example.joakes.cardsrecyclerviewexample;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.github.florent37.materialviewpager.HeaderDesign;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 
+import de.greenrobot.event.EventBus;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     private Game[] games;
     private MaterialViewPager viewPager;
@@ -59,16 +62,32 @@ public class MainActivity extends ActionBarActivity {
 
         viewPager.getViewPager().setOffscreenPageLimit(viewPager.getViewPager().getAdapter().getCount());
         viewPager.getPagerTitleStrip().setViewPager(viewPager.getViewPager());
+        new GetGamesTask().execute();
     }
 
-//    private void createGames() {
-//        games = new Game[]{
-//                new Game(R.mipmap.fallout, "fallout", Game.XBOX360),
-//                new Game(R.mipmap.halo_4, "halo", Game.XBOX360),
-//                new Game(R.mipmap.south_park, "south park", Game.XBOX360),
-//                new Game(R.mipmap.ac, "assasins's creed", Game.XBOX_ONE),
-//                new Game(R.mipmap.plantsvszombies, "plants vs zombines", Game.XBOX_ONE),
-//                new Game(R.mipmap.watch_dogs, "watch dogs", Game.XBOX_ONE),
-//        };
-//    }
+    private class GetGamesTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            createGames();
+            EventBus.getDefault().post(games);
+            return null;
+        }
+    }
+
+    private void createGames() {
+        games = new Game[]{
+                new Game(R.mipmap.fallout, "fallout", Game.XBOX360),
+                new Game(R.mipmap.halo_4, "halo", Game.XBOX360),
+                new Game(R.mipmap.south_park, "south park", Game.XBOX360),
+                new Game(R.mipmap.ac, "assasins's creed", Game.XBOX_ONE),
+                new Game(R.mipmap.plantsvszombies, "plants vs zombines", Game.XBOX_ONE),
+                new Game(R.mipmap.watch_dogs, "watch dogs", Game.XBOX_ONE),
+        };
+    }
 }
