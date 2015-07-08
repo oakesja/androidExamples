@@ -28,6 +28,10 @@ public class WebRequestQueue {
         return webRequestQueue;
     }
 
+    public static void setInstance(WebRequestQueue requestQueue) {
+        webRequestQueue = requestQueue;
+    }
+
     public void addToQueue(Request request, String tag) {
         request.setTag(tag);
         volleyRequestQueue.add(request);
